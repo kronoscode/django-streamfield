@@ -12,7 +12,7 @@ setuptools.setup(
     long_description=long_description,
     long_description_content_type="text/markdown",
     url="https://github.com/raagin/django-streamfield",
-    packages=setuptools.find_packages(exclude=['test_project']),
+    packages=setuptools.find_packages('streamfield', exclude=['test_project']),
     include_package_data=True,
     zip_safe=False,
     python_requires='>=3',

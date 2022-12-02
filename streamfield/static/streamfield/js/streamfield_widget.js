@@ -6,7 +6,7 @@
     }
 
     function onReady() {
-        var csrftoken = Cookies.get('csrftoken');
+        var csrftoken = document.querySelector('[name="csrfmiddlewaretoken"]').value;
         var streamfield_app = document.querySelectorAll('.streamfield_app');
         var ax = axios.create({
           headers: {"X-CSRFToken": csrftoken}

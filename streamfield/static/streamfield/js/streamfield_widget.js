@@ -205,9 +205,11 @@
                         }
                     },
                     deleteAction: function(block, id, idx) {
-                        return ax.delete('/streamfield/admin-instance/' + 
-                                            app.model_name_lower(block) + 
-                                            '/' + id + '/delete/')
+                        console.log('Delete!');
+                        return ax.delete({
+                            url: '/streamfield/admin-instance/' + app.model_name_lower(block) + '/' + id + '/delete/',
+                            headers: {"X-CSRFToken": csrftoken}
+                        });
                     },
                     addNewBlock: function(block, model_name) {
                         var options = {};

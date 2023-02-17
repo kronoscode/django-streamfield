@@ -1,4 +1,5 @@
 {% load i18n %}
+{% language 'es' %}
 <script type="text/javascript">
     var stream_texts = {
         'deleteBlock': '{% trans "Are you shure, that you want to delete this block?" %}',
@@ -127,3 +128,4 @@
     
     <textarea v-text="textarea" name="{{ widget.name }}"{% include "django/forms/widgets/attrs.html" %}>{% if widget.value %}{{ widget.value }}{% endif %}</textarea>
 </div>
+{% endlanguage %}

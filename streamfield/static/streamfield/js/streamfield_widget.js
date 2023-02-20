@@ -234,7 +234,7 @@
                         var triggeringLink = e.target;
                         var name = id_to_windowname(triggeringLink.id.replace(/^(change|add|delete)_/, ''));
                         var href = triggeringLink.href;
-                        var win = w.open(href, name, 'height=' + popup_size[1] + ',width=' + popup_size[0] + ',resizable=yes,scrollbars=yes');
+                        var win = w.open(href, "_blank");
                         win.focus();
                         return false;
                     }

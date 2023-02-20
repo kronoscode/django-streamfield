@@ -48,24 +48,24 @@
                             <span class="subblock-move"></span>
                             <span class="subblock-delete" @click="deleteInstance(block.unique_id, item_id)"></span>
                         </span>
-                        <a class="stream-btn"  target="_blank"
+                        <a class="stream-btn" 
                             :id="'change_id_' + instance_unique_id(block, item_id)" 
                             title="{% trans "Change" %}" 
                             :href="get_change_model_link(block, item_id)"
                             :data-block="block.unique_id"
                             :data-instance-id="item_id"
+                            @click.prevent="openPopup"
                             >{% trans "Change" %}</a>
                             &nbsp;
-                            <!-- @click.prevent="openPopup" -->
 
                     </span>
                     </draggable>
-                    <a class="stream-btn" target="_blank"
+                    <a class="stream-btn" 
                         :id="'add_id_' + block.unique_id"
                         title="{% trans "Add one more" %}"
                         :href="get_add_model_link(block)"
+                        @click.prevent="openPopup"
                         >+ {% trans "Add one more" %}</a>
-                        <!-- @click.prevent="openPopup" -->
                 </div>
                 <div v-else
                     class="stream-model-block__content no-subblocks"
@@ -75,22 +75,22 @@
                             :id="'id_' + instance_unique_id(block, block.id)"
                             v-html="getBlockContent(block, block.id)"
                             ></span>
-                        <a class="stream-btn" target="_blank"
+                        <a class="stream-btn" 
                         :id="'change_id_' + instance_unique_id(block, block.id)" 
                         title="{% trans "Change" %}"
                         :href="get_change_model_link(block, block.id)"
                         :data-block="block.unique_id"
                         :data-instance-id="block.id"
+                        @click.prevent="openPopup"
                         >{% trans "Change" %}</a>
-                        <!-- @clickprevent="openPopup" -->
                     </template>
                     <template v-else>
-                        <a class="stream-btn" target="_blank"
+                        <a class="stream-btn" 
                         :id="'add_id_' + block.unique_id"
                         title="{% trans "Add content" %}"
                         :href="get_add_model_link(block)"
+                        @click.prevent="openPopup"
                         >+ {% trans "Add content" %}</a>
-                        <!-- @click.prevent="openPopup" -->
                     </template>
                 </div>
             </div> <!-- /v-if="isAbstract" -->
@@ -119,7 +119,7 @@
             <div class="add-new-block-button" @click="show_add_block=!show_add_block">+ {% trans "Add new block" %}</div>
             <ul v-if="show_add_block">
                 <li v-for="(block, model_name) in model_info">
-                    <a class="stream-btn" target="_blank" href="#" v-text="'+ ' + block.model_doc" @click.prevent="addNewBlock(block, model_name)"></a>
+                    <a class="stream-btn" href="#" v-text="'+ ' + block.model_doc" @click.prevent="addNewBlock(block, model_name)"></a>
                 </li>
             </ul>
         </div>
